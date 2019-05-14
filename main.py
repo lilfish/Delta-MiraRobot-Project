@@ -1,3 +1,10 @@
-import modules.facialdetection.facialdetection as facialdetection
+# import modules.facialdetection.facialdetection as facialdetection
+import modules.statemachine.StateHandler as StateHandler
 
-print(facialdetection.getfacecount())
+# init
+state = StateHandler.StateHandler(StateHandler.EnumState.State.IDLE)
+
+# Main loop
+while (True):
+    state.handle()
+    # print(facialdetection.getfacecount())
