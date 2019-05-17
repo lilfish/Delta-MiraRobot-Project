@@ -2,7 +2,7 @@
 import modules.statemachine.StateHandler as StateHandler
 
 # init
-state = StateHandler.StateHandler(StateHandler.EnumState.State.IDLE)
+state = StateHandler.StateHandler(StateHandler.EnumState.State.FACE_FOUND)
 
 # Main loop
 while (True):

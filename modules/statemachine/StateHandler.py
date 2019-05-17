@@ -1,4 +1,5 @@
-import modules.statemachine.EnumState as EnumState 
+import modules.statemachine.EnumState as EnumState
+import modules.sound.sound as soundController
 
 class StateHandler():
     currentState = EnumState.State.IDLE
@@ -19,6 +20,7 @@ class StateHandler():
 
     def handle_face_found_state(self):
         print("Face found state")
+        soundController.happy()
 
     def handle_face_handle_state(self):
         print("Face handle state")
