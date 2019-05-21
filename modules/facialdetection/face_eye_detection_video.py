@@ -5,6 +5,28 @@ import cv2
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
+def detect(frame):
+    '''
+        This function takes the images, detects faces and eyes and
+        draws a rectangle around them.
+
+        Parameters:
+            gray : The grayscale image
+            frame : The color image
+        Returns:
+            the function will return the color image with rectangles
+            plotted on faces and eyes.
+    '''
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+
+    for x, y, w, h in faces:
+        roi_gray = gray[y:y+h, x:x+w]
+        roi_color = frame[y:y+h, x:x+w]
+
+        eyes = eye_cascade.detectMultiScale(roi_gray, 1.1, 3)
+        return eyes
+
 def detect(gray, frame):
     '''
         This function takes the images, detects faces and eyes and
@@ -27,10 +49,16 @@ def detect(gray, frame):
         roi_color = frame[y:y+h, x:x+w]
 
         eyes = eye_cascade.detectMultiScale(roi_gray, 1.1, 3)
-        
+
         for xe, ye, we, he in eyes:
+            ret = []
             print ("Eyes located: ", xe, ye, we, he)
             cv2.rectangle(roi_color, (xe, ye), (xe+we, ye+he), (0, 255, 0), 2)
+            ret.append(xe)
+            ret.append(ye)
+            ret.append(we)
+            ret.append(he)
+            print(ret)
 
     return frame
 
