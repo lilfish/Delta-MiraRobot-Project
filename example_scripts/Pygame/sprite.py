@@ -17,7 +17,7 @@ class Player(pygame.sprite.Sprite):
         self.images = []
         
         for i in range(1,5):
-            img = pygame.image.load('giphy.gif').convert()
+            img = pygame.image.load('../../data/winking.gif').convert()
             img.convert_alpha()
             img.set_colorkey(ALPHA)
             self.images.append(img)

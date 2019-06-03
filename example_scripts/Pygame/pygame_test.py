@@ -20,7 +20,7 @@ background = pygame.Surface(screen.get_size())
 background.fill(black)
 
 # Set sprite
-sprite = pygame.image.load("giphy.gif")
+sprite = pygame.image.load("../../data/winking.gif")
 sprite_rect = sprite.get_rect()
 sprite_rect.centerx = (width//2)
 sprite_rect.centery = (height//2)
