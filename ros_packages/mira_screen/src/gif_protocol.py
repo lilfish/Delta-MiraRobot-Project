@@ -54,7 +54,7 @@ class SharedData():
             SharedData.global_dict['transitioning'] = True
         else:
             SharedData.global_dict['final_gif'] = GifPlayerData.gif_data_table[emotion_id].filename 
-        print(SharedData.global_dict)
+        # print(SharedData.global_dict)
     
     @staticmethod 
     def emotion_handled():
